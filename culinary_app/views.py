@@ -1,6 +1,8 @@
 from rest_framework import viewsets, permissions
 from .serializers import ChefSerializer, DishSerializer, IngredientSerializer, RatingSerializer
 from .models import Chef, Dish, Ingredient, Rating
+from .filters import DishFilter
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class ChefViewSet(viewsets.ModelViewSet):
@@ -12,6 +14,8 @@ class DishViewSet(viewsets.ModelViewSet):
     queryset = Dish.objects.all()
     serializer_class = DishSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    filter_backends = [DjangoFilterBackend] 
+    filterset_class = DishFilter
 
 class IngredientViewSet(viewsets.ModelViewSet):
     queryset = Ingredient.objects.all()
