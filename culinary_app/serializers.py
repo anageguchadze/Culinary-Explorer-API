@@ -19,7 +19,7 @@ class DishSerializer(serializers.ModelSerializer):
         model = Dish
         fields = '__all__'
 
-class RatingtSerializer(serializers.ModelSerializer):
+class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
         fields = '__all__'
